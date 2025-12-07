@@ -38,7 +38,7 @@ Variational AutoEncoder(VAE)는 생성형 AI다. 생성형 AI를 만든다는 �
 먼저 VAE는 latent factors z 가 주어졌을때, 그 z로 부터 이미지 x를 생성하는 것이 목적이다. 
 AE(오토인코더)의 디코더를 떠올리면 된다.
 
-![VAE 목표 그림](/assets/images/contents/VAE/Untitled.png)
+![VAE 목표 그림](/images/posts/datascience/VAE/Untitled.png)
 
 
 생성형 AI는 p(x)를 모델링 하는 것이라고 했다. VAE도 마찬가지로 p(x)를 모델링 해야한다.  
@@ -52,9 +52,12 @@ $$
 그런데 이 때 우리는 실제 학습 데이터가 관측될 확률(가능도)을 최대로 하는 확률 분포 p(x) (data likelihood) 를 추정하고 싶을 것이다. 
 즉, 아래 수식을 최대화 하는 파라미터 **θ를 찾는 것이 VAE(디코더)의 진짜 목표가 된다.**
 
+$$
 \begin{aligned}
-Maximize \; likelihood \; training \;  data \\\\\\ p_{\theta}(x) = \int p_{\theta}(z)p_{\theta}(x|z) dz
+&Maximize \; likelihood \; training \;  data \\
+&p_{\theta}(x) = \int p_{\theta}(z)p_{\theta}(x|z) dz
 \end{aligned}
+$$
 
 위 식에서 p_θ(x|z)는 디코더 네트워크에 해당하고,
 p_θ(z)는 가우시안 분포로 가정한다. 그런데 p_θ(x)모든 z에 대해서 적분 하는 것은 불가능하다.
@@ -67,7 +70,7 @@ p_θ(z)는 가우시안 분포로 가정한다. 그런데 p_θ(x)모든 z에 대
 인코더는 x가 주어졌을 때 z의 확률 분포 실제 사후 확률 p_θ(z|x)를 근사화하는 네트워크다. 
 그 인코더를 q_Φ(z|x)라고 정의하자.
 
-![Untitled](/assets/images/contents/VAE/Untitled (1).png)
+![Untitled](/images/posts/datascience/VAE/Untitled(1).png)
 
 먼저 p_θ(z\|x)를 사용해서 p_θ(x)를
 다시 표현하면 아래와 같이 표현할 수 있다.
@@ -82,7 +85,7 @@ $$
 
 아래는 위 식에서 VAE의 loss function을 유도하는 과정이다. (강남우 교수님 강의 슬라이드)
 
-![Untitled](/assets/images/contents/VAE/Untitled (2).png)
+![Untitled](/images/posts/datascience/VAE/Untitled(2).png)
 
 먼저 우리가 최대화 하려고 하는 data likelihood에 log를 취해주고, 
 z가 인코더의 확률분포를 따를때의 기대값 형태로 표현하였다.
@@ -141,7 +144,7 @@ VAE의 인코더는 위 KL을 계산하기 위해서 µ, σ를 출력한다.
 인코더가 출력한 µ, σ는 위 KL 식이 최소화하도록 
 즉, q_Φ가 normal distribution을 따르도록 업데이트 될 수 있다.
 
-![Untitled](/assets/images/contents/VAE/Untitled (3).png)
+![Untitled](/images/posts/datascience/VAE/Untitled(3).png)
 
 ### Reconstruction Error
 
@@ -182,9 +185,13 @@ $$
 
 이때까지의 흐름을 정리하면 아래와 같다.
 
+$$
 \begin{aligned}
-\mathbb{E}\_{q_{z}(z|x_{i})}\[log(p(x_{i}|g_{\theta}(z)))] = \int log(p_{\theta}(x_{i}|z))q_{\phi}(z|x_{i})dz \\\\ \approx {1 \over L}\sum_{z^{i,l}}log(p_{\theta}(x_{i}|z^{i,l})) \\ \approx log(p_{\theta}(x_{i}|z^i))
+\mathbb{E}_{q_{z}(z|x_{i})}[log(p(x_{i}|g_{\theta}(z)))] &= \int log(p_{\theta}(x_{i}|z))q_{\phi}(z|x_{i})dz \\
+&\approx {1 \over L}\sum_{z^{i,l}}log(p_{\theta}(x_{i}|z^{i,l})) \\
+&\approx log(p_{\theta}(x_{i}|z^i))
 \end{aligned}
+$$
 
 그럼 이제 마지막 근사식 log liklighood를 풀면된다. 
 log liklihood는 디코더의 출력이다. 
@@ -193,9 +200,14 @@ loss function을 Cross Entropy 또는 MSE를 사용한다.
 
 출력이 베르누이를 따른다고 가정하고, log liklihood를 풀면 결국 Cross Entropy가 나온다.
 
+$$
 \begin{aligned}
-log(p_{\theta}(x_{i}|z^{i})) = log\prod_{j=1}^{D} p_{\theta}(x_{i,j}|z^i) \\\\\\ = \sum_{j=1}^D log(p_{\theta}(x_{i,j}|z^i) \\\\\\ =\sum_{j=1}^Dlog \, p_{i,j}^{x_{i,j}}(1-p_{i,j})^{1-x_{i,j}} \\\\\\ = \sum_{j=1}^{D} x_{i,j}logp_{i,j}+(1-x_{i,j})log(1-p_{i,j})
+log(p_{\theta}(x_{i}|z^{i})) &= log\prod_{j=1}^{D} p_{\theta}(x_{i,j}|z^i) \\
+&= \sum_{j=1}^D log(p_{\theta}(x_{i,j}|z^i)) \\
+&= \sum_{j=1}^D log \, p_{i,j}^{x_{i,j}}(1-p_{i,j})^{1-x_{i,j}} \\
+&= \sum_{j=1}^{D} x_{i,j}logp_{i,j}+(1-x_{i,j})log(1-p_{i,j})
 \end{aligned}
+$$
 
 그리고 디코더 출력을 가우시안으로 가정할 수 도 있다. 그렇게 되면 Reconstruction Error는 MSE가 된다.
 
@@ -203,7 +215,7 @@ log(p_{\theta}(x_{i}|z^{i})) = log\prod_{j=1}^{D} p_{\theta}(x_{i,j}|z^i) \\\\\\
 
 아래 그림은 VAE 의 전체적인 동작 과정을 보여준다. (강남우 교수님의 강의 슬라이드)
 
-![Untitled](/assets/images/contents/VAE/Untitled (4).png)
+![Untitled](/images/posts/datascience/VAE/Untitled(4).png)
 
 배웠던 내용을 간단하게 정리해보자
 
