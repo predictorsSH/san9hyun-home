@@ -1,0 +1,21 @@
+{
+  "DataScience": {
+    "name": "DataScience",
+    "subtitle": "데이터 과학과 머신러닝",
+    "description": "데이터 과학 관련 포스트를 공유합니다.",
+    "image": "/images/categories/datascience.jpg"
+  },
+  "Book": {
+    "name": "Book",
+    "subtitle": "독서와 서평",
+    "description": "읽은 책들에 대한 생각을 기록합니다.",
+    "image": "/images/categories/book.jpeg"
+  },
+  "Life": {
+    "name": "Life",
+    "subtitle": "일상의 기록",
+    "description": "일상 속에서 발견한 작은 이야기들을 기록합니다.",
+    "image": "/images/categories/life.jpeg"
+  }
+}
+
