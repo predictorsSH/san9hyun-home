@@ -2,7 +2,7 @@
 title: 데이터 과학 입문하기
 date: 2024-01-15
 category: DataScience
-image: /images/placeholder.jpg
+image: /images/categories/datascience.jpg
 excerpt: 데이터 과학의 기초를 알아봅시다.
 ---
 
