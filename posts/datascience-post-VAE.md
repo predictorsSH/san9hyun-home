@@ -2,7 +2,7 @@
 title: VAE의 Loss Function
 date: 2024-12-04
 category: DataScience
-image: /images/posts/datascience/VAE/sea-gec.jpg
+image: /images/posts/datascience/VAE/Untitled(4).png
 excerpt: VAE를 공부하고 정리했습니다.
 ---
 

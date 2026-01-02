@@ -3,7 +3,9 @@ import path from 'path'
 import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkMath from 'remark-math'
+import remarkGfm from 'remark-gfm'
 import remarkRehype from 'remark-rehype'
+import rehypeRaw from 'rehype-raw'
 import rehypeKatex from 'rehype-katex'
 import rehypeStringify from 'rehype-stringify'
 
@@ -73,8 +75,10 @@ export async function getPostData(id: string): Promise<PostData> {
 
   // Use remark to convert markdown into HTML string with math support
   const processedContent = await remark()
+    .use(remarkGfm)
     .use(remarkMath)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(rehypeKatex)
     .use(rehypeStringify)
     .process(matterResult.content)
