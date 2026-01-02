@@ -79,7 +79,10 @@ export async function getPostData(id: string): Promise<PostData> {
     .use(remarkMath)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
-    .use(rehypeKatex)
+    .use(rehypeKatex, { 
+      throwOnError: false,
+      strict: false
+    })
     .use(rehypeStringify)
     .process(matterResult.content)
   const contentHtml = processedContent.toString()
