@@ -3,7 +3,7 @@ title: (OR)Single Machine Scheduling
 date: 2026-01-12
 category: DataScience
 image: /images/posts/datascience/single_machine/basic.png
-excerpt: ortools의 CP-SAT을 사용합니다.
+excerpt: 전체 작업의 완료시간을 최소화 하는 작업 순서를 찾습니다.
 ---
 
 ortools의 CP-SAT을 사용한 단일 기계 스케줄링 문제 예제입니다. <br>
