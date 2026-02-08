@@ -2,7 +2,7 @@
 title: 읽었다는 착각 
 date: 2025-01-16
 category: Book
-image: 
+image: /images/posts/book/읽었다는착각/title.jpeg
 excerpt: 2026년은 더 잘 읽는 한 해가 되었으면 하는 바람이 이 책 덕분에 생겼다.
 ---
 
