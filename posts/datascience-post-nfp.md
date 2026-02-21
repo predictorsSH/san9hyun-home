@@ -6,11 +6,10 @@ image: /images/posts/datascience/nfp/another_nfp.png
 excerpt: No Fit Polygon에 대해 공부하며 정리한 글입니다.
 ---
 
-NFP(No Fit Polygon)는 다각형 두 개를 서로 겹치지 않으면서 딱 붙어 있는 모든 접촉 궤적이다.
-2차원 공간에서 다각형들을 겹치지 않게 배치하는 문제를 풀때 사용할 수 있다.
+NFP(No Fit Polygon)는 다각형 Q가 다각형 P의 외각을 따라 접한 채로 미끄러질때, Q의 특정 기준점이 그리는 경계선이다.
+NFP은 어떤 모양의 다각형이 주어져도 그 경계를 쉽게 찾을 수 있으며, 2차원 공간에서 다각형들을 겹치지 않게 배치하는 문제를 풀때 사용할 수 있다.
 
-NFP은 어떤 모양의 다각형이 주어져도 그 경계를 쉽게 찾을 수 있다.
-NFP를 얻기 위해서는 **Minkowski sum**(민코프스키 합)에 대해서 알아야 한다.
+NFP를 얻기 위해서는 **Minkowski sum**(민코프스키 합)를 알아야 한다.
 
 ### Minkowski sum이란?
 
