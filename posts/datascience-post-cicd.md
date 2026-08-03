@@ -2,7 +2,7 @@
 title: 간단한 CI 파이프라인 실습
 date: 2026-08-03
 category: DataScience
-image: /images/posts/datascience/teamcity/teamcity.PNG
+image: /images/posts/datascience/teamcity/teamcity.png
 excerpt: TeamCity로 Continuous Integration 파이프라인 실습
 ---
 
@@ -211,6 +211,9 @@ TeamCity 빌드 결과를 GitHub 커밋/PR 화면에 초록 체크·빨간 X로 
 
 → 이후 push하면 GitHub PR 화면에 `TeamCity build failed/succeeded` 형태로 상태가 표시됨.
 
+
+
+- 구축 된 teamcity 빌드 화면
 
 ![Teamcitiy](/images/posts/datascience/teamcity/teamcity.PNG)
 
