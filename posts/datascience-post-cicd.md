@@ -215,7 +215,7 @@ TeamCity 빌드 결과를 GitHub 커밋/PR 화면에 초록 체크·빨간 X로 
 
 - 구축 된 teamcity 빌드 화면
 
-![Teamcitiy](/images/posts/datascience/teamcity/teamcity.PNG)
+![Teamcitiy](/images/posts/datascience/teamcity/teamcity.png)
 
 CI는 검증을 사람이 수동으로 하지 않고, 코드가 바뀔 때마다 자동으로, 빠르게, 일관되게 한다
 CI를 잘 구축하면, 사람이 놓치는 실수도 잡아주고 문제도 빨리 발견하고, 룰을 시스템으로 컨트롤 할 수 있게 된다.
